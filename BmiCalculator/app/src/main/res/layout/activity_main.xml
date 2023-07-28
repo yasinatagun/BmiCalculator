@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBlue"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/appToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkerBlue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="BMI CALCULATOR"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:titleTextColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/genderSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/appToolbar">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/genderFemale"
+            android:onClick="oncGenderFemale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/activeCardColor"
+            android:elevation="0dp"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+                <ImageView
+                    android:id="@+id/imgFemale"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/female_icon"
+                    app:tint="@color/labelTextColor" />
+
+                <TextView
+                    android:id="@+id/txtFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:textColor="@color/labelTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/genderMale"
+            android:onClick="oncGenderMale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/activeCardColor"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+                <ImageView
+                    android:id="@+id/imgMale"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/male_icon"
+                    app:tint="@color/labelTextColor" />
+
+                <TextView
+                    android:id="@+id/txtMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    android:textColor="@color/labelTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/heightSection"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/activeCardColor"
+        app:cardCornerRadius="20dp"
+        app:flow_horizontalBias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/genderSection"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="HEIGHT"
+                android:textColor="@color/labelTextColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtHeightValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="185"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="cm"
+                    android:textColor="@color/labelTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/heightSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:value="125"
+                android:valueFrom="0"
+                android:valueTo="250"
+                app:haloColor="@color/white"
+                app:labelBehavior="gone"
+                app:labelStyle="@style/Tooltip"
+                app:thumbColor="@color/white"
+                app:tickColor="@color/white"
+                app:tickVisible="false"
+                app:trackColorActive="@color/white"
+                app:trackColorInactive="@color/bottomContainerColor"
+                app:trackHeight="6dp" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/weightSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/heightSection">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/genderale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/activeCardColor"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+
+                <TextView
+                    android:id="@+id/txtWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WEIGHT"
+                    android:textColor="@color/labelTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtWeightValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="185"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnWeightMinus"
+                        android:onClick="oncBtnWeightMinus"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="5dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="20dp"
+                        app:backgroundTint="@color/white"
+                        app:icon="@drawable/minus_icon"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/bottomContainerColor"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnWeightPlus"
+                        android:onClick="oncBtnWeightPlus"
+
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="20dp"
+                        app:backgroundTint="@color/white"
+                        app:icon="@drawable/plus_icon"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/bottomContainerColor"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ageLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/activeCardColor"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+
+                <TextView
+                    android:id="@+id/txtAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AGE"
+                    android:textColor="@color/labelTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtAgeValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="185"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAgeMinus"
+                        android:onClick="oncBtnAgeMinus"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="5dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="20dp"
+
+                        app:backgroundTint="@color/white"
+                        app:icon="@drawable/minus_icon"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/bottomContainerColor"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAgePlus"
+                        android:onClick="oncBtnAgePlus"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="20dp"
+                        app:backgroundTint="@color/white"
+                        app:icon="@drawable/plus_icon"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/bottomContainerColor"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:onClick="oncCalculateBmi"
+        android:paddingVertical="15dp"
+        android:text="CALCULATE BMI"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/bottomContainerColor"
+        app:cornerRadius="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weightSection" />
+</androidx.constraintlayout.widget.ConstraintLayout>

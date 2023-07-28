@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBlue"
+
+    tools:context=".ResultActivity">
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_result"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/txtBmiResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25"
+        android:textColor="@color/white"
+        android:textSize="70sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+         />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardResult"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtBmiResult"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="20dp"
+
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtResultTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UNDERWEIGHT"
+                android:textColor="@color/activeCardColor"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/txtResultExplanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Your bmi is too dangerous"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRecalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:onClick="oncRecalculate"
+        android:paddingVertical="15dp"
+        android:text="RE-CALCULATE BMI"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/bottomContainerColor"
+        app:cornerRadius="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardResult" />
+</androidx.constraintlayout.widget.ConstraintLayout>

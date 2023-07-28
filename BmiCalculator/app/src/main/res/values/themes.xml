@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BmiCalculator" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryDark"> @color/darkerBlue</item>
+    </style>
+
+    <style name="Theme.BmiCalculator" parent="Base.Theme.BmiCalculator" />
+
+    <style name="Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <!--This is the Tooltip textAppearance -->
+        <item name="android:textAppearance">@style/TextAppearance.Tooltip</item>
+        <!--This is the Tooltip Background Color -->
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.Tooltip" parent="TextAppearance.MaterialComponents.Tooltip">
+        <!--This is the Tooltip Text Color -->
+        <item name="android:textColor">@color/labelTextColor</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+</style>
+</resources>
